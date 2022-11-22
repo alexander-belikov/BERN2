@@ -54,6 +54,9 @@ def parse():
                         action="store_true")
     parser.add_argument("--no_cuda",
                         action="store_true")
+    parser.add_argument(
+        "--threads", type=int, default=8, help="number of concur threads"
+    )
     args = parser.parse_args()
     return args
 
@@ -64,5 +67,4 @@ if __name__ == "__main__":
         print("\t{}: {}".format(arg, getattr(args, arg)))
 
     app = create_app(args)
-#    app.run(host=args.host, port=int(args.port), debug=args.front_dev)
-    serve(app, host=args.host, port=int(args.port))
+    serve(app, host=args.host, port=int(args.port), threads=args.threads)
