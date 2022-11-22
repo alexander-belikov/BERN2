@@ -1,6 +1,8 @@
 #!/bin/bash
 
-cd ..
+export CUDA_VISIBLE_DEVICES=0
+export PATH="/root/.local/bin:$PATH"
+
 mkdir logs
 
 ####################################
@@ -8,7 +10,7 @@ mkdir logs
 ####################################
 
 # run neural NER
-nohup python multi_ner/ner_server.py \
+nohup poetry run python multi_ner/ner_server.py \
     --mtner_home multi_ner \
     --mtner_port 18894 >> logs/nohup_multi_ner.out 2>&1 &
 
@@ -49,7 +51,7 @@ cd ../../../..
 ####################################
 #####       Run BERN2          #####
 ####################################
-env "PATH=$PATH" nohup python -u server.py \
+poetry run python -u server.py \
     --mtner_home ./multi_ner \
     --mtner_port 18894 \
     --gnormplus_home ./resources/GNormPlusJava \
@@ -59,7 +61,5 @@ env "PATH=$PATH" nohup python -u server.py \
     --gene_norm_port 18888 \
     --disease_norm_port 18892 \
     --use_neural_normalizer \
-    --port 8888 \
-    >> logs/nohup_bern2.out 2>&1 &
+    --port 8888 
 
-tail -f logs/nohup_bern2.out

@@ -1,6 +1,7 @@
 from app import create_app
 
 import argparse
+from waitress import serve
 
 def parse():
     parser = argparse.ArgumentParser(description="Arguments for BERN2")
@@ -63,4 +64,5 @@ if __name__ == "__main__":
         print("\t{}: {}".format(arg, getattr(args, arg)))
 
     app = create_app(args)
-    app.run(host=args.host, port=int(args.port), debug=args.front_dev)
+#    app.run(host=args.host, port=int(args.port), debug=args.front_dev)
+    serve(app, host=args.host, port=int(args.port))

@@ -20,6 +20,7 @@ faiss = "^1.5.3"
 bioregistry = "^0.5.142"
 faiss-gpu = "^1.7.2"
 faiss-cpu-noavx2 = "^1.6.3"
+waitress = "^2.1.2"
 
 
 [build-system]
