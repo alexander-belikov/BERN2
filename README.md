@@ -1,6 +1,6 @@
 # BERN2
 
-We present **BERN2** (Advanced **B**iomedical **E**ntity **R**ecognition and **N**ormalization), a tool that improves the previous neural network-based NER tool by employing a multi-task NER model and neural network-based NEN models to achieve much faster and more accurate inference. This repository provides a way to host your own BERN2 server. See our [paper](https://arxiv.org/abs/2201.02080) for more details.
+We present **BERN2** (Advanced **B**iomedical **E**ntity **R**ecognition and **N**ormalization), a tool that improves the previous neural network-based NER tool by employing a multi-task NER model and neural network-based NEN models to achieve much faster and more accurate inference. This repository provides a way to host your own BERN2 server. Currently, BERN2 is running on a hosting server with 64-core CPU, 512GB Memory, and 12GB GPU. See our [paper](https://arxiv.org/abs/2201.02080) for more details.
 
 ***** **Try BERN2 at [http://bern2.korea.ac.kr](http://bern2.korea.ac.kr)** ***** 
 
@@ -51,11 +51,13 @@ sudo systemctl start mongod
 sudo systemctl status mongod
 ```
 
-Then, you need to download resources (e.g., external modules or dictionaries) for running BERN2. Note that you will need 70GB of free disk space.
+Then, you need to download resources (e.g., external modules or dictionaries) for running BERN2. Note that you will need 70GB of free disk space. You can also download the resource file from [google drive](https://drive.google.com/file/d/147b3OhU4IdQi121ZBUSqO1XKdKoXE5DK/view?usp=sharing).
 
 ```
 wget http://nlp.dmis.korea.edu/projects/bern2-sung-et-al-2022/resources_v1.1.b.tar.gz
 tar -zxvf resources_v1.1.b.tar.gz
+md5sum resources_v1.1.b.tar.gz
+# make sure the md5sum is 'c0db4e303d1ccf6bf56b42eda2fe05d0'
 rm -rf resources_v1.1.b.tar.gz
 
 # (For Linux/MacOS Users) install CRF 
@@ -77,6 +79,7 @@ cd ../..
 
 ## Running BERN2
 
+The minimum memory requirement for running BERN2 on GPU is 63.5GB of RAM & 5.05GB of GPU. 
 The following command runs BERN2.
 ```
 export CUDA_VISIBLE_DEVICES=0
