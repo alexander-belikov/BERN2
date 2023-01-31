@@ -22,9 +22,9 @@ nohup java -Xmx16G -Xms16G -jar GNormPlusServer.main.jar 18895 >> ../../logs/noh
 cd ..
 
 # run tmVar
-cd tmVarJava
-nohup java -Xmx8G -Xms8G -jar tmVar2Server.main.jar 18896 >> ../../logs/nohup_tmvar.out 2>&1 &
-cd ..
+# cd tmVarJava
+# nohup java -Xmx8G -Xms8G -jar tmVar2Server.main.jar 18896 >> ../../logs/nohup_tmvar.out 2>&1 &
+# cd ..
 
 ####################################
 #####     Normalization        #####
