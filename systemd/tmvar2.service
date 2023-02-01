@@ -1,0 +1,13 @@
+[Unit]
+Description="tmvar2 component of BERN2"
+After=multi-user.target
+
+[Service]
+WorkingDirectory=/root/BERN2/resources/tmVarJava
+ExecStart=java -Xmx12G -Xms12G -jar /root/BERN2/resources/tmVarJava/tmVar2Server.main.jar 18896
+Type=idle
+Restart=always
+User=root
+
+[Install]
+WantedBy=multi-user.target

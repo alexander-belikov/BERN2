@@ -1,0 +1,13 @@
+[Unit]
+Description="tmvar2 component of BERN2"
+After=multi-user.target
+
+[Service]
+WorkingDirectory=/root/BERN2/resources/GNormPlusJava
+ExecStart=java -Xmx16G -Xms16G -jar GNormPlusServer.main.jar 18895
+Type=idle
+Restart=always
+User=root
+
+[Install]
+WantedBy=multi-user.target

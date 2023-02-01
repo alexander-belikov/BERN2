@@ -1,0 +1,13 @@
+[Unit]
+Description="disease component of BERN2"
+After=multi-user.target
+
+[Service]
+WorkingDirectory=/root/BERN2/resources/normalization
+ExecStart=java -Xmx16G -jar normalizers/disease/disease_normalizer_21.jar "inputs/disease" "outputs/disease" "dictionary/dict_Disease_20210630.txt" "normalizers/disease/resources" 9 18892
+Type=idle
+Restart=always
+User=root
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,13 @@
+[Unit]
+Description="gene norm component of BERN2"
+After=multi-user.target
+
+[Service]
+WorkingDirectory=/root/BERN2/resources/normalization/normalizers/gene
+ExecStart=java -Xmx20G -jar gnormplus-normalization_21.jar 18888
+Type=idle
+Restart=always
+User=root
+
+[Install]
+WantedBy=multi-user.target

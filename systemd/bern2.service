@@ -1,0 +1,19 @@
+[Unit]
+Description="entity linking service; bern v2"
+After=multi-user.target
+
+[Service]
+WorkingDirectory=/root/BERN2/
+ExecStart=/root/.local/bin/poetry run python -u server.py --mtner_home ./multi_ner --mtner_port 18894 --gnormplus_home ./resources/GNormPlusJava --gnormplus_port 18895 --tmvar2_home ./resources/tmVarJava --tmvar2_port 18896 --gene_norm_port 18888 --disease_norm_port 18892 --use_neural_normalizer --port 8888
+Type=idle
+Restart=always
+User=root
+Requires=tmvar2.service
+Requires=multi_ner.service
+Requires=gene.service
+Requires=disease.service
+Requires=gnormplus.service
+
+
+[Install]
+WantedBy=multi-user.target
