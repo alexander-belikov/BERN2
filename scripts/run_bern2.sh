@@ -10,9 +10,9 @@ mkdir logs
 ####################################
 
 # run neural NER
-nohup poetry run python multi_ner/ner_server.py \
-    --mtner_home multi_ner \
-    --mtner_port 18894 >> logs/nohup_multi_ner.out 2>&1 &
+#nohup poetry run python multi_ner/ner_server.py \
+#    --mtner_home multi_ner \
+#    --mtner_port 18894 >> logs/nohup_multi_ner.out 2>&1 &
 
 cd resources
 

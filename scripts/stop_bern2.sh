@@ -1,12 +1,12 @@
 #!/bin/bash
 
-pid=`ps auxww | grep ner_server.py | grep -v grep | awk '{print $2}' | sort -r`
-if [ "$pid" != "" ]; then
-  kill -9 "$pid"
-  echo "Stopped ner_server.py"
-else
-  echo "No ner_server.py found to stop."
-fi
+#pid=`ps auxww | grep ner_server.py | grep -v grep | awk '{print $2}' | sort -r`
+#if [ "$pid" != "" ]; then
+#  kill -9 "$pid"
+#  echo "Stopped ner_server.py"
+#else
+#  echo "No ner_server.py found to stop."
+#fi
 
 pid=`ps auxww | grep GNormPlusServer.main.jar | grep -v grep | awk '{print $2}' | sort -r`
 if [ "$pid" != "" ]; then
