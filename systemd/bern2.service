@@ -1,6 +1,12 @@
 [Unit]
 Description="entity linking service; bern v2"
 After=multi-user.target
+Requires=tmvar2.service
+Requires=multi_ner.service
+Requires=gene.service
+Requires=disease.service
+Requires=gnormplus.service
+
 
 [Service]
 WorkingDirectory=/root/BERN2/
@@ -8,12 +14,6 @@ ExecStart=/root/.local/bin/poetry run python -u server.py --mtner_home ./multi_n
 Type=idle
 Restart=always
 User=root
-Requires=tmvar2.service
-Requires=multi_ner.service
-Requires=gene.service
-Requires=disease.service
-Requires=gnormplus.service
-
 
 [Install]
 WantedBy=multi-user.target
